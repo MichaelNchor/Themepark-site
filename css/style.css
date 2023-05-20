@@ -1,0 +1,955 @@
+/* Resources used in research and code starter snippets */
+
+/* Research for grid usage */
+/* https://gridbyexample.com/video/series-line-based-placement/ */
+/* https://www.w3schools.com/css/css_grid.asp/ */
+/* https://www.w3schools.com/css/css_grid_container.asp/ */
+/* https://www.w3schools.com/css/css_grid_item.asp/ */
+
+/* background image research */
+/* https://www.w3schools.com/cssref/css3_pr_background-size.asp */
+
+/*  
+    CSS to develop the main grid structure for the site to standardise the header and footer areas across pages
+    The Header subgrid will allow for the spacing and some resizing of the page based on scrensize
+    The Main Content section of each page will carry another subgrid to contain the individual page layouts
+*/
+
+/*  
+    Import 2 pokemon font families for use on the Site
+    Source: https://www.fontmirror.com/pokemon
+
+    'robotoregular' and 'flexomedium' font families also brought in to website from pokemon.com research by Hieu Le 
+*/
+
+@font-face {
+    font-family: pokehollow;
+    src: url(/fonts/Pokemon\ Hollow.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: pokesolid;
+    src: url(/fonts/Pokemon\ Solid.ttf);
+    font-weight: bold;
+}
+
+/* 
+    Main grid style uses template area names to position the the core elements of the page 
+*/
+/* 
+    Core structure grids and header CSS by Michael David Hegarty
+*/
+body {
+    background-color: rgba(255, 255, 0, 0.8);
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 18fr 1fr;
+    grid-template-rows: minmax(50px, 24vh) 8fr minmax(20px, 10vh);
+    grid-template-areas:
+        ". mHeader ."
+        ". mContent ."
+        ". mFooter .";
+}
+
+.main-grid > section {
+    border-radius: 5px;
+}
+
+.mainContent {
+    grid-area: mContent;
+}
+
+/*  
+    Adding a second grid layer to control the Park logo and Navigiation buttons to hover over the main banner pictures
+    The elements within this grid position themselves instead of the main style of using grid-template-areas to map out the grid usage
+    */
+
+#header {
+    grid-area: mHeader;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    max-height: 24vh;
+    background-image: url("../img/original.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/* Logo source */
+/* https://www.pinterest.co.kr/pin/359443614013850113/ */
+.headerLogo {
+    grid-column: 1;
+    background-image: url("../img/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    overflow: visible;
+}
+
+/*
+    Setting the navigation box and button styles to position the buttons evenly across the nav bar within the banner image
+    */
+
+#navbar {
+    border-radius: 0px;
+    grid-column: span 3;
+    display: flex;
+    padding: 5px;
+}
+
+.navbutton {
+    border-radius: 3vw;
+    background-color: rgb(255, 255, 255, 0.5);
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    font-family: "pokesolid", 'flexomedium', Times, sans-serif;
+    font-size: 2vh;
+    line-height: 5vh;
+}
+
+/* Gradient transition for menu items */
+
+.water:hover {
+    border-radius: 3vw;
+    background-size: 300%, 100%;
+    background-image: linear-gradient(to right, rgba(7, 120, 204, 0), rgba(7, 120, 204));
+    transition: background-position 3s;
+    background-position: -100% 0;
+}
+
+.water.active {
+    background-color: rgba(7, 120, 204);
+}
+
+.fire:hover {
+    border-radius: 3vw;
+    background-size: 300%, 100%;
+    background-image: linear-gradient(to right, rgba(234, 42, 31, 0), rgba(234, 42, 31));
+    transition: background-position 3s;
+    background-position: -100% 0;
+}
+
+.fire.active {
+    background-color: rgba(234, 42, 31);
+}
+
+.lightning:hover {
+    border-radius: 3vw;
+    background-size: 300%, 100%;
+    background-image: linear-gradient(to right, rgba(247, 223, 13, 0), rgba(247, 223, 13));
+    transition: background-position 3s;
+    background-position: -100% 0;
+}
+
+.lightning.active {
+    background-color: rgba(247, 223, 13);
+}
+
+.navbutton a {
+    display: block;
+    font-size: 1.2em;
+    color: yellow;
+    text-shadow:
+        1px 1px 2px blue,
+        1px -1px 2px blue,
+        -1px 1px 2px blue,
+        -1px -1px 2px blue;
+    text-decoration: none;
+}
+
+.navbutton img {
+    height: 6vh;
+    float: left;
+}
+
+/*
+    Footer CSS
+*/
+
+/* 
+    Footer CSS by  Hieu Le 
+*/
+
+#footer {
+    grid-area: mFooter;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-areas:
+        'list . media';
+    background-color: rgb(255, 255, 255, 0.8);
+    margin: 0 10%;
+    padding: 15px;
+    margin-top: 10px;
+    max-height: 10vh;
+}
+
+#linked-list {
+    grid-area: list;
+}
+
+#media-links {
+    grid-area: media;
+}
+
+#media-links img {
+    float: right;
+    width: 10%;
+}
+
+footer ul {
+    margin: 0;
+    padding: 0;
+}
+
+#linked-list li {
+    font-family: 'flexomedium', Times, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    list-style-type: none;
+    display: inline;
+}
+
+#linked-list li:not(:first-child):before {
+    content: " | ";
+}
+
+
+/*index.html CSS------------------------------------*/
+
+/* 
+    Main Content area of index.html CSS by Thomas Elgawly
+*/
+
+#index-body {
+    background-image: url("../img/pokemon.jpg");
+    width: 80%;
+    margin: 1% 10%;
+}
+
+#main-content-index {
+    background-color: rgb(255, 255, 255, 0.8);
+    padding: 15px;
+    text-align: center;
+    width: 85%;
+    margin: 1vh auto;
+    border-radius: 1vh;
+}
+
+.fpintro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+}
+
+.fpintro div {
+    margin: 20px;
+    padding: 10px;
+}
+
+.fpintro p {
+    color: black;
+    font-size: 1em
+}
+
+.fpintro h3 {
+    font-family: 'robotoregular', Times, sans-serif;
+    color: black;
+    font-size: 1.5em
+}
+
+.fpIntroContentLeft {
+    width: fit-content;
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.fpIntroContentRight {
+    width: fit-content;
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+
+
+div.gallery {
+    margin: 1vw;
+    width: 12vw;
+    min-height: max-content;
+    border: 1px solid orange;
+    border-radius: 8px;
+    float: left;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s ease; /* CSS for image scale effect by Hieu Le */
+}
+
+
+
+div.gallery:hover {
+    border: 1px solid red;
+    border-radius: 8px;
+    transform: scale(1.1); /* CSS for image scale effect by Hieu Le */
+    box-shadow: 5px 5px 15px rgb(0,0,0,0.6); /* CSS for image scale effect by Hieu Le */
+}
+
+div.gallery img {
+    display: block;
+    width: 12vw;
+    object-fit: cover;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+    font-family: 'robotoregular', Times, sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    color: black;
+    font-weight: bold;
+}
+
+/* 
+    CSS for video media by  Hieu Le 
+*/
+
+.video {
+    width: 60vw;
+    grid-area: video;
+    position: relative;
+    justify-content: center;
+    justify-items: center;
+    top: 0;
+    left: 0;
+}
+
+.video h2 {
+    font-family: "pokehollow", 'flexomedium', Times, sans-serif;
+    font-size: 1.5vw;
+    color: white;
+    line-height: 0.5vw;
+}
+
+.video p {
+    font-family: 'flexomedium', Times, sans-serif;
+    font-size: 1vw;
+    color: white;
+    line-height: 0.5vw;
+}
+
+#myVideo {
+
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+    height: 5vw;
+    position: absolute;
+    bottom: 1vw;
+    background: rgba(0, 0, 0, 0.3);
+    color: #f1f1f1;
+    width: 59vw;
+    padding-left: 1vw;
+
+}
+
+
+/*
+    things-to-do.html CSS
+*/
+
+/* 
+    Main Content area of things-to-do.html.html CSS by Hieu Le
+*/
+
+.main-content-things-to-do {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+        'map'
+        'drop-down'
+        'attractions'
+        'events'
+        'dining';
+    text-align: left;
+    background-color: white;
+    justify-items: center;
+    width: 80%;
+    margin: 1% 10%;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+}
+
+.map {
+    grid-area: map;
+    width: 100%;
+    height: 0;
+    justify-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-image: url(/img/park-map.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-top: 60.22%;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+}
+
+/* Marker location and style settings */
+#detective-marker {
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    top: 22%;
+    left: 25%;
+
+}
+
+#go-coaster-marker {
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    top: 12%;
+    left: 58%;
+
+}
+
+#hunt-marker {
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    top: 72%;
+    left: 52%;
+
+}
+
+#outbreak-marker {
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 42%;
+
+}
+
+#train-marker {
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    top: 52%;
+    left: 12%;
+
+}
+
+#cafe-marker {
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    top: 45%;
+    left: 79%;
+
+}
+
+#stop-marker {
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    top: 88%;
+    left: 82%;
+
+}
+
+/* Tooltip text */
+
+.marker img {
+    width: 2.5vw;
+    height: auto;
+}
+
+.marker .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    height: auto;
+    background-color: #555;
+    color: #fff;
+    font-family: 'flexomedium', Times, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    text-align: center;
+    padding: 5px 5px;
+    border-radius: 6px;
+    /* Position the tooltip text */
+    position: absolute;
+    bottom: 100%;
+    left: -1.3vw;
+    margin-left: 0;
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.marker:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+
+}
+
+/* 
+    Resource: https://css-tricks.com/making-css-animations-feel-natural/ 
+    animation to make pokeball on map bounce when you hover over them
+
+    Animation code by Michael David Hegarty
+    
+*/
+
+.marker img:hover {
+
+    animation: bounce-5 2s infinite 0.1s linear;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
+@keyframes bounce-5 {
+    0% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    10% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    20% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    30% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    40% {
+        transform: scale(1.1, .9) translateY(0);
+    }
+
+    50% {
+        transform: scale(.9, 1.1) translateY(-40%);
+    }
+
+    60% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    70% {
+        transform: scale(1, 1) translateY(-4%);
+    }
+
+    85% {
+        transform: scale(1, 1) translateY(0);
+    }
+
+    100% {
+        transform: scale(1, 1) translateY(0);
+    }
+}
+
+.drop-down {
+    grid-area: drop-down;
+    width: 100%;
+    justify-items: left;
+}
+
+.drop-down-menu {
+    font-family: 'robotoregular', Times, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-size: 15px;
+    color: #212121;
+
+}
+
+.drop-down-label {
+    font-family: 'flexomedium', Times, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-size: 15px;
+    color: #212121;
+    margin-left: 10px;
+}
+
+#attractions {
+    grid-area: attractions;
+    display: grid;
+    grid-template-columns: 10px auto 10px;
+    grid-template-areas:
+        '. header .'
+        '. detective .'
+        '. pokemon .'
+        '. catch .';
+    justify-items: center;
+    width: 100%;
+
+}
+
+#attractions .section-header {
+    grid-area: header;
+}
+
+#detective-pikachu {
+    grid-area: detective;
+}
+
+#pokemon-go-coaster {
+    grid-area: pokemon;
+}
+
+#catch {
+    grid-area: catch;
+}
+
+#events {
+    grid-area: events;
+    display: grid;
+    grid-template-columns: 10px auto 10px;
+    grid-template-areas:
+        '. header .'
+        '. festival .'
+        '. train .';
+    justify-items: center;
+    text-align: justify;
+    width: 100%;
+
+}
+
+#events .section-header {
+    grid-area: header;
+
+}
+
+#outbreak-festival {
+    grid-area: festival;
+}
+
+#train-your-pokemon {
+    grid-area: train;
+}
+
+#dining {
+    grid-area: dining;
+    display: grid;
+    grid-template-columns: 10px auto 10px;
+    grid-template-areas:
+        '. header .'
+        '. cafe .'
+        '. stop .';
+    justify-items: center;
+    text-align: justify;
+    width: 100%;
+
+}
+
+#dining .section-header {
+    grid-area: header;
+
+}
+
+#pokemon-cafe {
+    grid-area: cafe;
+}
+
+#poke-stop {
+    grid-area: stop;
+}
+
+.things-to-do {
+    display: grid;
+    grid-template-columns: 210px auto 100px;
+    grid-template-areas:
+        'image text find';
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #E3E7EC;
+}
+
+.section-header {
+    border-bottom: 1px solid #E3E7EC;
+    width: 100%;
+    text-align: center;
+
+}
+
+.section-header h2 {
+    font-family: 'flexomedium', Durotype, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #30AAE0;
+}
+
+.info-image {
+    grid-area: image;
+    text-align: right;
+    border-radius: 4px;
+    background-color: aquamarine;
+}
+
+.info-text {
+    grid-area: text;
+    font-family: 'flexomedium', Times, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    font-size: 20px;    
+    margin-top: 0;
+    padding: 2vw;
+    
+}
+
+.info-text p {
+    font-family: 'robotoregular', Times, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-size: 15px;
+    color: gray;
+    
+}
+
+.find-on-map {
+    grid-area: find;
+    width: 80%;
+    align-self: center;
+    cursor: pointer;
+}
+
+/* 
+    Modal CSS code by Hieu Le
+*/
+
+.modal {
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-content {
+    display: flex;
+    width: 60vw;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+
+}
+
+#park-map {
+    flex-shrink: 0;
+    object-fit: cover;
+    width: 100%;
+
+
+}
+
+
+/* 
+    Animation code research source "https://flaviocopes.com/rotate-image/" 
+    Animation CSS by Michael David Hegarty
+*/
+#marker {
+    width: 2.5vw;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+/* ticketPage.html CSS ------------------------------------------------------------------------*/
+
+/* CSS covering the main content of the ticket page code by Nchor Michael with code fit by David Hegarty*/
+
+
+/* Selector for body section of the ticket page -----------------------------------------------*/
+#ticketPage {
+    display: grid;
+    grid-template-columns: auto 500px;
+    margin: 20px;
+    background-color: #ffde22;
+}
+
+.ticketContent {
+    display: grid;
+    background-color: rgba(255, 251, 251, 0.5);
+}
+
+.ticketContent > div:hover {
+
+    transition-duration: 1.5s;
+}
+
+/* ----------------------------------------------------------------------------------------END */
+
+
+/* Set margins for areas in the body ----------------------------------------------------------*/
+.leftbar {
+    margin: 20px;
+}
+
+.rightbar {
+    margin: 20px;
+}
+
+.midSection {
+    margin: 20px;
+}
+
+.Downbar {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin: 20px;
+}
+
+/* ----------------------------------------------------------------------------------------END */
+
+
+/* Styling for Package Options in left Bar for the ticket packages ----------------------------*/
+.option {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: rgba(0, 147, 255, 1.00);
+    position: inherit;
+}
+
+/* Set animation for options when the mouse hovers over each one */
+.option:hover {
+    transform: scale(1.05);
+    border-radius: 25px;
+    transition-duration: 1.5s;
+}
+
+.ticketTitle {
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif"
+}
+
+.ticketButton {
+    color: #20bf6b !important;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #20bf6b !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    width: 300px;
+    height: 90px;
+}
+
+.ticketButton:hover {
+    color: #494949 !important;
+    border-radius: 50px;
+    border-color: #494949 !important;
+    transition: all 0.3s ease 0s;
+}
+
+.ticketImg {
+    /*    Limit image sizes to prevent them from taking up the full screen */
+    max-height: 200px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+/* ----------------------------------------------------------------------------------------END */
+
+
+/* Styling for Package Options in Right Bar for the ticket packages purchse options -----------*/
+
+#ticketSidebar {
+    background-color: rgba(255, 251, 251, 0.5);
+}
+
+#Descbox {
+    background-color: rgba(255, 255, 255, 1.00);
+    margin: 20px;
+    height: 1080px;
+}
+
+#ticketarea {
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    font-size: 15px;
+    text-align: center;
+}
+
+#ticketBox {
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    font-size: 30px;
+}
+
+form {
+    margin: 30px
+}
+
+input {
+    margin: 10px;
+}
+
+/* ----------------------------------------------------------------------------------------END */

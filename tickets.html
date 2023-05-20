@@ -1,0 +1,196 @@
+<DOCTYPE! html>
+    <html lang="en">
+
+    <head>
+        <title>Welcome to the Pokemon Theme Park - Home</title>
+        <meta charset="utf-8">
+        <meta name="description" content="The Pokemon Theme Park">
+        <meta name="author" content="Web development project team">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Theme park, entertainment, thrills, family fun">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="/fonts/flexomedium/stylesheet.css" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="/fonts/roboto/stylesheet.css" type="text/css" charset="utf-8" />
+    </head>
+
+    <body>
+        <div class="main-grid">
+            <!-- Sub-grid within the header to organise the banner, logo and navigation bar -->
+            <section id="header">
+                <div class="headerLogo"></div>
+                <div id="navbar">
+                    <!-- 
+          Navigation Bar initial code from: https://www.w3schools.com/css/css_navbar.asp           
+          Images source: https://www.vhv.rs/viewpic/Jbbxii_pokemon-type-symbols-png-transparent-png/
+        -->
+                    <div class="navbutton water"><img src="img/waterEmb.png"><a href="index.html">Home</a></div>
+                    <div class="navbutton fire"><img src="img/fireEmb.png"><a href="thingstodo.html">Things To Do</a></div>
+                    <div class="navbutton lightning active"><img src="img/lightningEmb.png"><a href="tickets.html">Tickets</a></div>
+                </div>
+            </section>
+            <section class="mainContent">
+                <div id="ticketPage">
+
+                    <!--Main content-->
+                    <div class="ticketContent">
+                        <div class="rightbar">
+                            <div class="option">
+                                <div class="description">
+                                    <ul>
+                                        <!--						One Man Package-->
+                                        <h1 class="ticketTitle" style="text-align: center">One Man Package</h1>
+
+                                        <div class="Config">
+                                            <a></a>
+                                            <a href="#ticketBox"><button class="ticketButton" onclick="Description('one')">
+                                                    <h2 class="getticket">Get Ticket</h2>
+                                                </button></a>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <img class="ticketImg" alt="OneMan Image" src="img/OneManPack.jpg">
+                            </div>
+                        </div>
+                        <div class="midSection">
+                            <div class="option">
+                                <div class="description">
+                                    <ul>
+                                        <!--						Couples Package-->
+                                        <h1 class="ticketTitle" style="text-align: center">Couples Package</h1>
+
+                                        <div class="Config">
+                                            <a></a>
+                                            <a href="#ticketBox"><button class="ticketButton" onclick="Description('couples')">
+                                                    <h2 class="getticket">Get Ticket</h2>
+                                                </button></a>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <img class="ticketImg" alt="CouplesPack" src="img/CouplesPack.jpg">
+                            </div>
+                        </div>
+                        <div class="leftbar">
+                            <div class="option">
+                                <div class="description">
+                                    <ul>
+                                        <!--						Family Package-->
+                                        <h1 class="ticketTitle" style="text-align: center">Family Package</h1>
+
+                                        <div class="Config">
+                                            <a></a>
+                                            <a href="#ticketBox"><button class="ticketButton" onclick="Description('family')">
+                                                    <h2 class="getticket">Get Ticket</h2>
+                                                </button></a>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <img class="ticketImg" alt="FamilyPackage" src="img/FamilyPackage.jpg">
+                            </div>
+                        </div>
+                        <div class="Downbar">
+                            <div class="option">
+                                <div class="description">
+                                    <ul>
+                                        <!--						Custom Package-->
+                                        <h1 class="ticketTitle" style="text-align: center">Custom Package</h1>
+
+                                        <div class="Config">
+                                            <a></a>
+                                            <a href="#ticketBox"><button class="ticketButton" onclick="Description('custom')">
+                                                    <h2>Customize</h2>
+                                                </button></a>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <img class="ticketImg" alt="Custom" src="img/custom.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ticketSidebar">
+                        <!--		specific Package Description-->
+                        <div id="Descbox">
+                            <label id="details"><a id="ticketarea">
+                                    <h1 id="tickarea">TICKET AREA</h1>
+                                    <p>Selected Ticket Options appear here</p>
+                                </a></label>
+                        </div>
+                        <!--		end of description-->
+
+                        <!--End of the main content area-->
+                        <script type="text/javascript">
+                            function Description(id) {
+                                var id;
+                                if (id == "one") {
+                                    //					One Man Description
+                                    document.getElementById('details').innerHTML =
+                                        '<ul><h4><a id="ticketBox">One-Man Package</a></h4><label id="Desp"></label><li><a>TICKET DESCRIPTION: <ul><li> Enjoy 5 Fun Attractions of your choice</li><li> Pass for All Services</li><li> Free Photoshoots</li></ul></a></li><li><a>DATE: <input type="date" value="2020-07-06"></a><li><a>TICKET TYPE:</a><div id="container"><input type="radio" id="Daily" name="Ticket type" value="100" onclick="UpdatePrice()" checked><label for="Daily">Daily Pass</label><br><input class="Passtype" type="radio" id="Weekly" name="Ticket type" value="500" onclick="UpdatePrice()"><label for="Weekly">Weekly Pass</label><br><input class="Passtype" type="radio" id="Monthly" name="Ticket type" value="1500" onclick="UpdatePrice()"><label for="Monthly">Monthly Pass</label></div></li></li><li><a>PRICE: $<label id="price">100</label></a></li></ul><form><textarea name="myTextBox" cols="30" rows="3">Submit a comment...</textarea><br/><input type="submit"></form>';
+                                } else if (id == "couples") {
+                                    //					Couples Description
+                                    document.getElementById('details').innerHTML =
+                                        '<ul><h4><a id="ticketBox">Couples Package</a></h4><label id="Desp"></label><li><a>TICKET DESCRIPTION: <ul><li> Enjoy 7 Fun Attractions of your choice</li><li> Pass for All Services</li><li> Free Photoshoots</li><li> Free Photo Album</li></ul></a></li><li><a>DATE: <input type="date" value="2020-07-06"></a><li><a>TICKET TYPE:</a><div id="container"><input type="radio" id="Daily" name="Ticket type" value="250" onclick="UpdatePrice()" checked><label for="Daily">Daily Pass</label><br><input type="radio" id="Weekly" name="Ticket type" value="1000" onclick="UpdatePrice()"><label for="Weekly">Weekly Pass</label><br><input type="radio" id="Monthly" name="Ticket type" value="3500" onclick="UpdatePrice()"><label for="Monthly">Monthly Pass</label></div></li></li><li><a>PRICE: $<label id="price">250</label></a></li></ul><form><textarea name="myTextBox" cols="30" rows="3">Submit a comment...</textarea><br/><input type="submit"></form>';
+                                } else if (id == "family") {
+                                    //					Family Description
+                                    document.getElementById('details').innerHTML =
+                                        '<ul><h4><a id="ticketBox">Family Package</a></h4><label id="Desp"></label><li><a>TICKET DESCRIPTION: <ul><li>Enjoy 7 Fun Attractions of your choice for 4</li><li> Pass for All Services</li><li> Free Photoshoots</li><li> Free Photo Album</li></ul></a></li><li><a>DATE: <input type="date" value="2020-07-06"></a><li><a>TICKET TYPE:</a><div id="container"><input type="radio" id="Daily" name="Ticket type" value="400" onclick="UpdatePrice()" checked><label for="Daily">Daily Pass</label><br><input type="radio" id="Weekly" name="Ticket type" value="3000" onclick="UpdatePrice()"><label for="Weekly">Weekly Pass</label><br><input type="radio" id="Monthly" name="Ticket type" value="7000" onclick="UpdatePrice()"><label for="Monthly">Monthly Pass</label></div></li></li><li><a>PRICE: $<label id="price">400</label></a></li></ul><form><textarea name="myTextBox" cols="30" rows="3">Submit a comment...</textarea><br/><input type="submit"></form>';
+                                } else {
+                                    //					Custom Description
+                                    document.getElementById('details').innerHTML =
+                                        '<ul><h4><a id="ticketBox">Customize Ticket</a></h4><label id="Desp"></label><li><a>SET TICKET DESCRIPTION:</a><div id="container"><label>Select Attraction</label><br><input type="checkbox" name="attraction" value="20" onchange="UpdateAttraction()"><label>Pokemon Roller Coaster : $20</label><br><input type="checkbox" name="attraction" value="20" onchange="UpdateAttraction()"><label>Pokemon Fight Simulator : $20</label><br><input type="checkbox" name="attraction" value="20" onchange="UpdateAttraction()"><label>Pokemon Universe Virtual Chamber : $20</label><br><input type="checkbox" name="attraction" value="20" onchange="UpdateAttraction()"><label>Detective Pickachu : $20</label><br><input type="checkbox" name="attraction" value="20" onclick="UpdateAttraction()"><label>Meet Your Favorite Pokemon : $20</label><br><input type="checkbox" name="attraction" value="20" onchange="UpdateAttraction()" ><label>Ultimate Pokemon Feris Wheel : $20</label></div></li><a>Select Service</a><div id="container"><input type="checkbox" name="attraction" value="20" onchange="UpdateAttraction()"><label>Restaurant Service : $20</label><br><input type="checkbox" name="attraction" value="20" onchange="UpdateAttraction()"><label>Free Merchandise : $20</label><br><input type="checkbox" name="attraction" value="20" onchange="UpdateAttraction()"><label>PhotoShoots : $20 per 5 photos</label><br><input type="checkbox" name="attraction" value="20" onchange="UpdateAttraction()"><label>Lodging : $20</label><br><input type="checkbox" name="attraction" value="20" onchange="UpdateAttraction()"><label>Washroom Services : $20</label></div></li></li><li><a>DATE: <input type="date" value="2020-07-06"></a><a>TICKET TYPE:</a><div id="container"><input type="radio" id="Daily" name="Ticket type" id="Daily" value="0" onchange="UpdateAttraction()" checked><label for="Daily">Daily Pass</label><br><input type="radio" id="Weekly" name="Ticket type" value="3000" onchange="UpdateAttraction()"><label for="Weekly">Weekly Pass</label><br><input type="radio" id="Monthly" name="Ticket type" value="7000" onchange="UpdateAttraction()"><label for="Monthly">Monthly Pass</label></div></li></li><li><a>NUMBER OF PERSONS(Choose From 1 - 10): <input type="number" id="npersons" min="1" max="10" value="1" onchange="Npersons()"></a><li><a>PRICE:$<label id="price">0</label></a></li></ul><form><textarea name="myTextBox" cols="30" rows="3">Submit a comment...</textarea><br/><input type="submit"></form>';
+                                }
+                            }
+
+                            function UpdatePrice() {
+                                var chkbx = document.getElementsByName('Ticket type');
+                                for (var i = 0; i < chkbx.length; i++) {
+                                    if (chkbx[i].checked) {
+                                        document.getElementById("price").innerHTML = chkbx[i].value;
+                                    }
+                                }
+                                return document.getElementById("price").innerHTML;
+                            }
+
+                            function Npersons() {
+                                var npers = document.getElementById('npersons');
+                                document.getElementById("price").innerHTML = parseInt(UpdateAttraction()) * parseInt(npers.value);
+                            }
+
+                            function UpdateAttraction() {
+                                var chkbx = document.getElementsByName('attraction');
+                                var sum = 0;
+                                document.getElementById("price").innerHTML.value = '';
+                                for (var i = 0; i < chkbx.length; i++) {
+                                    if (chkbx[i].checked) {
+                                        sum += parseInt(chkbx[i].value)
+                                    }
+                                }
+                                return document.getElementById("price").innerHTML = sum + parseInt(UpdatePrice());
+
+                            };
+
+                        </script>
+
+                    </div>
+                </div>
+            </section>
+            <section id="footer">
+
+                <div id="linked-list">
+                    <ul>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Partnered Charities</a></li>
+                        <li><a href="">Company</a></li>
+                        <li><a href="">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div id="media-links">
+                    <img src="img/facebook.jpg" alt="Facebook Link">
+                    <img src="img/twitter.jpg" alt="Twitter Link">
+                    <img src="img/instgram.png" alt="Intgram Link">
+                </div>
+            </section>
+        </div>
+    </body>
+
+    </html>
